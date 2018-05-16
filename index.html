@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Password Entropy</title>
+    <meta author="Alex Clink, http://alexclink.com">
+    <meta charset="utf8">
+    <script src="passwordEntropy.js"></script>
+  </head>
+  <body>
+    <p>How long would it take to crack your password?</p>
+    <form id="crackForm" onsubmit="return false">
+      <label>
+        Password: <input
+                    id="in"
+                    type="text"
+                    spellcheck="false"
+                    placeholder="correct stable battery horse"
+                    autofocus="autofocus">
+      </label>
+      <button type="submit">Check (enter)</button>
+    </form>
+    <p>
+      Given an attacker has access to your hashed password<br>
+      and can perform <input
+                        id="ops"
+                        type="number"
+                        pattern="[0-9]+"
+                        required="required"
+                        value="4000000000"
+                        placeholder="Operations">
+      operations per second<br>
+      using a brute force approach, it would take... <h2 id="out">0 years, 0 weeks, 0 days, 0 hours, 0 minutes, 0 seconds</h2> ...at most to try all possibilites leading to your password
+    </p>
+    <script>
+      let outEl = document.getElementById('out');
+      let inEl = document.getElementById('in');
+      let opsEl = document.getElementById('ops');
+      document.getElementById('crackForm').addEventListener('submit', function(e) {
+        outEl.textContent = scorePassword(inEl.value, parseInt(opsEl.value)).string;
+      });
+    </script>
+  </body>
+</html>
