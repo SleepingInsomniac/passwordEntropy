@@ -5,4 +5,4 @@ This is a simple project to test your password strength based on "message space"
 
 ![Preview](./passwordEntropy.png)
 
-[See it live](https://rawgit.com/SleepingInsomniac/passwordEntropy/master/index.html)
+[See it live](https://sleepinginsomniac.github.io/passwordEntropy/)
